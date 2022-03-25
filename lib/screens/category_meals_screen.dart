@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import './dummy_data.dart';
+import '../widgets/meal_item.dart';
+import '../dummy_data.dart';
 
 class CategoryMealsScreen extends StatelessWidget {
   CategoryMealsScreen({Key? key}) : super(key: key);
@@ -25,9 +26,12 @@ class CategoryMealsScreen extends StatelessWidget {
             return Container(
               width: double.infinity,
               padding: EdgeInsets.all(15),
-              child: Text(
-                categoryMeals[index].title as String,
-                style: TextStyle(color: Colors.white, fontSize: 34),
+              child: MealItem(
+                title: categoryMeals[index].title,
+                imageUrl: categoryMeals[index].imageUrl,
+                duration: categoryMeals[index].duration,
+                complexity: categoryMeals[index].complexity,
+                affordability: categoryMeals[index].affordability,
               ),
             );
           },
