@@ -21,6 +21,11 @@ const DUMMY_CATEGORIES = [
     color: Colors.orange,
   ),
   Category(
+    id: 'c33',
+    title: 'YahyaFood',
+    color: Colors.cyanAccent,
+  ),
+  Category(
     id: 'c4',
     title: 'German',
     color: Colors.amber,
@@ -63,6 +68,7 @@ const DUMMY_MEALS = [
     categories: [
       'c1',
       'c2',
+      'c33',
     ],
     title: 'Spaghetti with Tomato Sauce',
     affordability: Affordability.Affordable,
@@ -193,6 +199,7 @@ const DUMMY_MEALS = [
       'c2'
           'c5',
       'c10',
+      'c33',
     ],
     title: 'Salad with Smoked Salmon',
     affordability: Affordability.Luxurious,
@@ -378,6 +385,7 @@ const DUMMY_MEALS = [
       'c2',
       'c5',
       'c10',
+      'c33',
     ],
     title: 'Asparagus Salad with Cherry Tomatoes',
     affordability: Affordability.Luxurious,
