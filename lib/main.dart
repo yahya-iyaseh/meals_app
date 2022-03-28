@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
+import '../screens/favorites_screen.dart';
 import '../screens/tabs_screen.dart';
 import '../screens/meal_details_screen.dart';
 import '../screens/categories_screen.dart';
 import '../screens/category_meals_screen.dart';
+import '../screens/filters_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,6 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'YahyaMeals',
+
       theme: ThemeData(
         appBarTheme: AppBarTheme(
           foregroundColor: Colors.white,
@@ -24,7 +27,7 @@ class MyApp extends StatelessWidget {
         ),
         primarySwatch: Colors.red,
         accentColor: Colors.amber,
-        canvasColor: Color.fromARGB(255, 255, 246, 166),
+        canvasColor: Color.fromARGB(255, 238, 232, 183),
         fontFamily: 'Raleway',
         textTheme: const TextTheme(
           bodyText1: TextStyle(
@@ -46,6 +49,8 @@ class MyApp extends StatelessWidget {
         '/': (context) => TabsScreen(),
         CategoryMealsScreen.routeName: (context) => CategoryMealsScreen(),
         MealDetailScreen.routeName: (context) => MealDetailScreen(),
+        FiltersScreen.routeName: (context) => FiltersScreen(),
+        FavoritesScreen.routeName: (context) => FavoritesScreen(),
       },
       onUnknownRoute: (settins) {
         return MaterialPageRoute(builder: (context) => CategoryMealsScreen());
