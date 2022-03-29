@@ -15,8 +15,8 @@ class CategoryItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
     return InkWell(
-      
       onTap: () => _selectCategory(context, title),
       splashColor: Theme.of(context).primaryColor,
       borderRadius: BorderRadius.circular(15),
