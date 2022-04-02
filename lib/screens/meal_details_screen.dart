@@ -2,10 +2,17 @@ import 'package:flutter/material.dart';
 
 import '../dummy_data.dart';
 
-class MealDetailScreen extends StatelessWidget {
-  const MealDetailScreen({Key? key}) : super(key: key);
+class MealDetailScreen extends StatefulWidget {
+  final Function toggleFavorites;
+  final Function isFavoriteMeal;
+  MealDetailScreen(this.toggleFavorites, this.isFavoriteMeal);
   static const routeName = '/meal-detail';
 
+  @override
+  State<MealDetailScreen> createState() => _MealDetailScreenState();
+}
+
+class _MealDetailScreenState extends State<MealDetailScreen> {
   Widget buildSectionTitle(BuildContext context, String title) {
     return Container(
       child: Text(
@@ -21,7 +28,7 @@ class MealDetailScreen extends StatelessWidget {
         horizontal: 20,
         vertical: 20,
       ),
-      height: 200,
+      height: 250,
       width: double.infinity,
       child: Container(
         padding: EdgeInsets.all(10),
@@ -113,13 +120,14 @@ class MealDetailScreen extends StatelessWidget {
           ],
         ),
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.startDocked,
+      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.pop(context, mealId);
-        },
+        backgroundColor: Colors.white,
+        onPressed: () => widget.toggleFavorites(mealDetails.id),
         child: Icon(
-          Icons.delete,
+          widget.isFavoriteMeal(mealDetails.id)
+              ? Icons.favorite
+              : Icons.favorite_border_outlined,
           color: Theme.of(context).errorColor,
         ),
       ),

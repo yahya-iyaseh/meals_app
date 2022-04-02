@@ -4,7 +4,9 @@ import '../dummy_data.dart';
 import '../models/Meal.dart';
 
 class CategoryMealsScreen extends StatefulWidget {
-  CategoryMealsScreen({Key? key}) : super(key: key);
+  final List filterMeals;
+  CategoryMealsScreen(this.filterMeals);
+
   static String routeName = '/category-meals';
 
   @override
@@ -37,7 +39,7 @@ class _CategoryMealsScreenState extends State<CategoryMealsScreen> {
 
       String id = args['id'] as String;
 
-      displaydMeals = DUMMY_MEALS.where((item) {
+      displaydMeals = widget.filterMeals.where((item) {
         return item.categories.contains(id);
       }).toList();
     }
